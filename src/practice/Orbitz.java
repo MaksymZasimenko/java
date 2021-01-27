@@ -29,6 +29,19 @@ public class Orbitz {
         driver.findElement(By.xpath("//button[@data-stid='location-field-destination-result-item-button' ]")).click();
         Thread.sleep(2000);
 
+//        WebElement checkIn = driver.findElement(By.id("d1-btn"));
+//        WebElement checkOut = driver.findElement(By.id("d2-btn"));
+//
+//        //date format 2021-02-09
+//        LocalDate date = LocalDate.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+//        String dateToday = formatter.format(date);
+//        date = date.plusWeeks(2);
+//        String dayIn2Weeks = formatter.format(date);
+//
+//        checkIn.sendKeys(dateToday);
+//        checkOut.sendKeys(dayIn2Weeks);
+
 
         //Select number of guests and rooms
        driver.findElement(By.xpath("//button[@class='uitk-fake-input uitk-form-field-trigger']")).click();
