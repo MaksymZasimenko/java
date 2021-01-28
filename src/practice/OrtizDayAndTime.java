@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class OrtizDayAndTime {
     public static void main(String[] args) {
@@ -24,10 +25,16 @@ public class OrtizDayAndTime {
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         String dateToday = formatter.format(date);
-        date = date.plusWeeks(2);
         String dayIn2Weeks = formatter.format(date);
+        driver.manage().window().maximize();
+        checkIn.click();
 
-        checkIn.sendKeys(dateToday);
-        checkOut.sendKeys(dayIn2Weeks);
+        List<WebElement> elements = driver.findElements(By.xpath("//td[@class='uitk-date-picker-day-number']"));
+        for (int i = 0; i<elements.size(); i++){
+            if(elements.get(i).equals(dateToday)){
+                elements.get(i).click();
+                date = date.plusWeeks(2);
+            }
+        }
     }
 }
